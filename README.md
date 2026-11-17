@@ -257,14 +257,6 @@ restore drill above is for.
 - Retention lists the backup folder and deletes only objects whose names match this tool's own
   timestamp pattern directly inside that folder. Your other files in the same prefix are never touched.
 
-## If you would rather not run a container
-
-[Dumpling](https://getdumpling.dev/r/container) is the hosted version of the same engine: the same
-`pg_dump`/`mysqldump` into your own bucket, the same in-stream verification, plus run history, missed-run
-detection, email alerts and a page per backup, with no container to keep alive. One database with daily
-backups is free. The files are byte-for-byte what this container writes, so you can move between the
-two without converting anything.
-
 ## Development
 
 ```bash

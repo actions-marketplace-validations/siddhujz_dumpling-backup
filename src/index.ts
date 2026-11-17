@@ -23,7 +23,6 @@ function main() {
   log(`dumpling-backup ${VERSION}: ${describeDatabase(cfg.database)} -> s3://${cfg.storage.bucket}/${[cfg.storage.prefix, cfg.backupName].filter(Boolean).join("/")}/`);
   log(`Retention: ${cfg.keepLast ? `keep last ${cfg.keepLast}` : "no count limit"}, ${cfg.keepDays ? `keep ${cfg.keepDays} days` : "no age limit"}${cfg.passphrase ? "; encryption on" : ""}${cfg.webhookUrl ? "; webhook on" : ""}${cfg.healthcheckUrl ? "; healthcheck ping on" : ""}`);
   if (cfg.database.engine === "mysql") log(`mysqldump flavour: ${detectMysqldumpFlavour(cfg.mysqldumpBin)}`);
-  log("Backup history, missed-run alerts and test restores without running a container: https://getdumpling.dev/r/container");
 
   // inFlight covers the whole run including the notification, so a shutdown never cuts a webhook off.
   let inFlight: AbortController | null = null;
